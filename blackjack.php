@@ -54,15 +54,14 @@ class Blackjack {
     }
 
     /**
-     * add ace value depending on the total of other cards
-     * if the total of cards is under 21 it equals 11
+     * add ace value depending on the total cards
+     * if the total of cards is under or equal 21 it equals 11
      * otherwise it equals 1
      */
     private function addAceValue() {
         if (in_array("ace", $this->hand)) {
-            $this->aceValue =  ($this->total < 21) ? 11 : 1;
+            $this->aceValue =  ($this->total+11 <= 21) ? 11 : 1;
             $this->total += $this->aceValue;
-
         }
     }
     // return the card with the highest value
